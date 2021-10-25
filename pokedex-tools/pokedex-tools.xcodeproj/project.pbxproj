@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C260A4F3272716E700E94C5E /* DetailedPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C260A4F2272716E700E94C5E /* DetailedPokemonViewController.swift */; };
 		C26D58CE2723001900BAA405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D58CD2723001900BAA405 /* AppDelegate.swift */; };
 		C26D58D02723001900BAA405 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D58CF2723001900BAA405 /* SceneDelegate.swift */; };
-		C26D58D22723001900BAA405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D58D12723001900BAA405 /* ViewController.swift */; };
+		C26D58D22723001900BAA405 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D58D12723001900BAA405 /* PokemonViewController.swift */; };
 		C26D58D52723001900BAA405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26D58D32723001900BAA405 /* Main.storyboard */; };
 		C26D58D82723001900BAA405 /* pokedex_tools.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C26D58D62723001900BAA405 /* pokedex_tools.xcdatamodeld */; };
 		C26D58DA2723001A00BAA405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C26D58D92723001A00BAA405 /* Assets.xcassets */; };
@@ -37,10 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C260A4F2272716E700E94C5E /* DetailedPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPokemonViewController.swift; sourceTree = "<group>"; };
 		C26D58CA2723001900BAA405 /* pokedex-tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pokedex-tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26D58CD2723001900BAA405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C26D58CF2723001900BAA405 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C26D58D12723001900BAA405 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C26D58D12723001900BAA405 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		C26D58D42723001900BAA405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C26D58D72723001900BAA405 /* pokedex_tools.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pokedex_tools.xcdatamodel; sourceTree = "<group>"; };
 		C26D58D92723001A00BAA405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +105,8 @@
 			children = (
 				C26D58CD2723001900BAA405 /* AppDelegate.swift */,
 				C26D58CF2723001900BAA405 /* SceneDelegate.swift */,
-				C26D58D12723001900BAA405 /* ViewController.swift */,
+				C26D58D12723001900BAA405 /* PokemonViewController.swift */,
+				C260A4F2272716E700E94C5E /* DetailedPokemonViewController.swift */,
 				C26D58D32723001900BAA405 /* Main.storyboard */,
 				C26D58D92723001A00BAA405 /* Assets.xcassets */,
 				C26D58DB2723001A00BAA405 /* LaunchScreen.storyboard */,
@@ -261,8 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C26D58D22723001900BAA405 /* ViewController.swift in Sources */,
+				C26D58D22723001900BAA405 /* PokemonViewController.swift in Sources */,
 				C26D58CE2723001900BAA405 /* AppDelegate.swift in Sources */,
+				C260A4F3272716E700E94C5E /* DetailedPokemonViewController.swift in Sources */,
 				C26D58D82723001900BAA405 /* pokedex_tools.xcdatamodeld in Sources */,
 				C26D58D02723001900BAA405 /* SceneDelegate.swift in Sources */,
 			);

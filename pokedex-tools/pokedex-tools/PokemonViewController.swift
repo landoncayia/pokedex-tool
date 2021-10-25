@@ -2,12 +2,11 @@
 //  ViewController.swift
 //  pokedex-tools
 //
-//  Created by user203780 on 10/22/21.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemonViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
