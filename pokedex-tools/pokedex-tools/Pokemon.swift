@@ -18,7 +18,7 @@ enum Type: String {
 // Every Pokemon must have at least one type, but the second type is optional
 typealias PokemonType = (Type, Type?)
 
-class Pokemon {
+class Pokemon: Equatable {
     var name: String
     var generation: Int
     var pokedexNumber: Int
@@ -57,5 +57,10 @@ class Pokemon {
         } else {
             self.init(name: "", generation: 0, pokedexNumber: 0, type: PokemonType(Type.Normal, nil), evolutions: nil)
         }
+    }
+    
+    static func ==(lhs: Pokemon, rhs: Pokemon) -> Bool {
+        // Two Pokemon are equal in the Pokedex if their names alone are equal
+        return lhs.name == rhs.name
     }
 }
