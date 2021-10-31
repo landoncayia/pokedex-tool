@@ -93,5 +93,22 @@ class PokemonViewController: UITableViewController {
         // Update the model
         pokemonStore.movePokemon(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // If the triggered segye is the "showPokemon" segue
+        switch segue.identifier {
+        case "showPokemon":
+            // Figure out which row was just tapped
+            if let row = tableView.indexPathForSelectedRow?.row {
+                
+                // Get the Pokemon associated with this row and pass it along
+                let pokemon = pokemonStore.allPokemon[row]
+                let detailedPokemonViewController = segue.destination as! DetailedPokemonViewController
+                detailedPokemonViewController.pokemon = pokemon
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
 }
 
