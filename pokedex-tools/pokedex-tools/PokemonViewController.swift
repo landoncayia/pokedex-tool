@@ -40,23 +40,34 @@ class PokemonViewController: UITableViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pokemonStore.allPokemon.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Had to add this to prevent error
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        
         // Get a new or recycled cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
         
         // Set the text on the cell with the description of the Pokemon that is at the nth index of Pokemon, where n = row this cell will appear in on the table view
         let pokemon = pokemonStore.allPokemon[indexPath.row]
+       
+        cell.nameLabel.text = pokemon.name
+        cell.genDexLabel.text = "#\(pokemon.pokedexNumber) | Gen: \(pokemon.generation)"
         
-        cell.textLabel?.text = pokemon.name
-        cell.detailTextLabel?.text = "Gen: \(String(pokemon.generation)) Dex: \(String(pokemon.pokedexNumber)) Type: \(pokemon.type.0.toString())"
+        var temp = pokemon.type.0.toString()
+        if let value = pokemon.type.1?.toString() {
+            temp+="| \(value)"
+        }
+        
+        cell.typeLabel.text = temp
         
         return cell
     }

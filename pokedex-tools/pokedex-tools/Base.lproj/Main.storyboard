@@ -48,13 +48,46 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="DUt-Eb-j1X">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokemonCell" id="DUt-Eb-j1X" customClass="PokemonCell" customModule="pokedex_tools" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="104.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DUt-Eb-j1X" id="sk7-wb-TKb" customClass="UITableViewCell">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DUt-Eb-j1X" id="sk7-wb-TKb">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iW-Zh-rXV">
+                                            <rect key="frame" x="20" y="0.0" width="35.5" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-rD-cOX">
+                                            <rect key="frame" x="358.5" y="13.5" width="35.5" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJr-18-HZx">
+                                            <rect key="frame" x="20" y="29" width="36" height="14"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2dd-rD-cOX" firstAttribute="centerY" secondItem="sk7-wb-TKb" secondAttribute="centerY" id="89i-by-El4"/>
+                                        <constraint firstItem="HJr-18-HZx" firstAttribute="leading" secondItem="7iW-Zh-rXV" secondAttribute="leading" id="EVn-YW-qMt"/>
+                                        <constraint firstItem="7iW-Zh-rXV" firstAttribute="top" secondItem="sk7-wb-TKb" secondAttribute="top" id="NBv-WJ-qlf"/>
+                                        <constraint firstItem="7iW-Zh-rXV" firstAttribute="leading" secondItem="sk7-wb-TKb" secondAttribute="leading" constant="20" symbolic="YES" id="bkW-di-0Rf"/>
+                                        <constraint firstAttribute="trailing" secondItem="2dd-rD-cOX" secondAttribute="trailing" constant="20" symbolic="YES" id="ubz-Ih-nEm"/>
+                                        <constraint firstAttribute="bottom" secondItem="HJr-18-HZx" secondAttribute="bottom" constant="0.5" id="v76-XQ-dea"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="genDexLabel" destination="HJr-18-HZx" id="KCi-11-yxc"/>
+                                    <outlet property="nameLabel" destination="7iW-Zh-rXV" id="vSJ-fU-2Xj"/>
+                                    <outlet property="typeLabel" destination="2dd-rD-cOX" id="dHz-3p-lpF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -65,7 +98,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUz-X7-mKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-586" y="-671"/>
+            <point key="canvasLocation" x="-586.95652173913049" y="-671.65178571428567"/>
         </scene>
         <!--Detailed Pokemon View Controller-->
         <scene sceneID="pmS-5U-kEU">
@@ -86,6 +119,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
