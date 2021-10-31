@@ -10,7 +10,7 @@ class PokemonViewController: UITableViewController {
 
     var pokemonStore: PokemonStore!
     
-    @IBAction func addNewPokemon(_ sender: UIButton) {
+    @IBAction func addNewPokemon(_ sender: UIBarButtonItem) {
         // Create a new, custom Pokemon and add it to the store
         let newPokemon = pokemonStore.createPokemon()
         
@@ -23,28 +23,24 @@ class PokemonViewController: UITableViewController {
         }
     }
     
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-        // If you are currently in editing mode...
-        if isEditing {
-            // Change text of button to inform user of state
-            sender.setTitle("Edit", for: .normal)
-            
-            // Turn off editing mode
-            setEditing(false, animated: true)
-        } else {
-            // Change text of button to inform user of state
-            sender.setTitle("Done", for: .normal)
-            
-            // Enter editing mode
-            setEditing(true, animated: true)
-        }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,9 +58,9 @@ class PokemonViewController: UITableViewController {
         cell.nameLabel.text = pokemon.name
         cell.genDexLabel.text = "#\(pokemon.pokedexNumber) | Gen: \(pokemon.generation)"
         
-        var temp = pokemon.type.0.toString()
-        if let value = pokemon.type.1?.toString() {
-            temp+="| \(value)"
+        var temp = pokemon.type.0.rawValue
+        if let value = pokemon.type.1?.rawValue {
+            temp+=" | \(value)"
         }
         
         cell.typeLabel.text = temp

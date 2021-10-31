@@ -22,7 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let pokemonStore = PokemonStore()
         
         // Access the PokemonViewController and set its item store
-        let pokemonController = window!.rootViewController as! PokemonViewController
+        //let pokemonController = window!.rootViewController as! PokemonViewController
+        let navController = window!.rootViewController as! UINavigationController
+        let pokemonController = navController.topViewController as! PokemonViewController
         pokemonController.pokemonStore = pokemonStore
     }
 

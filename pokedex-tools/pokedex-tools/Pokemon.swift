@@ -8,11 +8,11 @@
 import UIKit
 
 enum Type: String {
-    case Normal, Fire, Water, Grass, Electric, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dark, Dragon, Steel, Fairy
+case Normal = "Normal", Fire = "Fire", Water = "Water", Grass = "Grass", Electric = "Electric", Ice = "Ice", Fighting = "Fighting", Poison = "Poison", Ground = "Ground", Flying = "Flying", Psychic = "Psychic", Bug = "Bug", Rock = "Rock", Ghost = "Ghost", Dark = "Dark", Dragon = "Dragon", Steel = "Steel", Fairy = "Fairy"
     
-    func toString() -> String {
+    /*func toString() -> String {
         return self.rawValue
-    }
+    }*/
 }
 
 // Every Pokemon must have at least one type, but the second type is optional

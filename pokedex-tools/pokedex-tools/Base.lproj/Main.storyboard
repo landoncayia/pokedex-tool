@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bTR-dg-oWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ttb-pQ-Mj1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -8,6 +8,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5Ze-D7-jAl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ttb-pQ-Mj1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ewh-Ir-hPu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bTR-dg-oWb" kind="relationship" relationship="rootViewController" id="1vp-ST-Ool"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TLE-WV-L93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-586.95652173913049" y="-671.65178571428567"/>
+        </scene>
         <!--Pokemon View Controller-->
         <scene sceneID="waY-sv-5Ol">
             <objects>
@@ -16,40 +34,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="bf9-9l-Tug">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXQ-3q-bJH">
-                                    <rect key="frame" x="8" y="14.5" width="195" height="31"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Edit"/>
-                                    <connections>
-                                        <action selector="toggleEditingMode:" destination="bTR-dg-oWb" eventType="touchUpInside" id="xR3-nD-EM8"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1w-bh-pK5">
-                                    <rect key="frame" x="211" y="14.5" width="195" height="31"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
-                                    <connections>
-                                        <action selector="addNewPokemon:" destination="bTR-dg-oWb" eventType="touchUpInside" id="2NW-3E-v2q"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="uXQ-3q-bJH" firstAttribute="centerY" secondItem="bf9-9l-Tug" secondAttribute="centerY" id="8km-U7-Hzc"/>
-                                <constraint firstItem="W1w-bh-pK5" firstAttribute="width" secondItem="uXQ-3q-bJH" secondAttribute="width" id="FQO-e4-g2a"/>
-                                <constraint firstItem="W1w-bh-pK5" firstAttribute="centerY" secondItem="bf9-9l-Tug" secondAttribute="centerY" id="HQy-Da-RDV"/>
-                                <constraint firstAttribute="trailing" secondItem="W1w-bh-pK5" secondAttribute="trailing" constant="8" id="PZZ-3i-vNU"/>
-                                <constraint firstItem="uXQ-3q-bJH" firstAttribute="leading" secondItem="bf9-9l-Tug" secondAttribute="leading" constant="8" id="Vyo-vz-ATs"/>
-                                <constraint firstItem="W1w-bh-pK5" firstAttribute="leading" secondItem="uXQ-3q-bJH" secondAttribute="trailing" constant="8" id="qVX-Rq-uQ0"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokemonCell" id="DUt-Eb-j1X" customClass="PokemonCell" customModule="pokedex_tools" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="104.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DUt-Eb-j1X" id="sk7-wb-TKb">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -96,21 +83,29 @@
                             <outlet property="delegate" destination="bTR-dg-oWb" id="Wc2-lG-fFn"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="PokeDex-Tools" id="JHb-0P-TyX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="0OM-yN-0cL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Zn-7n-BH6">
+                            <connections>
+                                <action selector="addNewPokemon:" destination="bTR-dg-oWb" id="uWn-Nj-7gH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUz-X7-mKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-586.95652173913049" y="-671.65178571428567"/>
+            <point key="canvasLocation" x="323.1884057971015" y="-671.65178571428567"/>
         </scene>
         <!--Detailed Pokemon View Controller-->
         <scene sceneID="pmS-5U-kEU">
             <objects>
                 <viewController id="brM-QL-Acl" customClass="DetailedPokemonViewController" customModule="pokedex_tools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SiB-7W-0ao">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KPn-X5-7w2">
-                                <rect key="frame" x="38" y="8" width="339" height="792"/>
+                                <rect key="frame" x="38" y="96" width="339" height="758"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jfb-aD-HgX">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="34"/>
@@ -125,6 +120,9 @@
                                                 <rect key="frame" x="98.5" y="0.0" width="240.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="brM-QL-Acl" id="Oun-da-BBp"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -141,6 +139,9 @@
                                                 <rect key="frame" x="98.5" y="0.0" width="240.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="brM-QL-Acl" id="wZS-fW-hjs"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -157,6 +158,9 @@
                                                 <rect key="frame" x="98.5" y="0.0" width="240.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="brM-QL-Acl" id="jJU-Ho-2Dy"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -170,25 +174,42 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LmQ-3r-h22">
-                                                <rect key="frame" x="98.5" y="0.0" width="240.5" height="34"/>
+                                                <rect key="frame" x="98.5" y="0.0" width="116.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="brM-QL-Acl" id="t9K-PC-pRp"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="192-GB-TJM">
+                                                <rect key="frame" x="223" y="0.0" width="116" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="brM-QL-Acl" id="TOg-KS-XVn"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="192-GB-TJM" firstAttribute="width" secondItem="LmQ-3r-h22" secondAttribute="width" id="e4B-is-vOO"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZIq-6b-w7m">
-                                        <rect key="frame" x="0.0" y="168" width="339" height="624"/>
+                                        <rect key="frame" x="0.0" y="168" width="339" height="590"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Evolution(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uay-rn-ogk">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="624"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="590"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-12-7kI">
-                                                <rect key="frame" x="98.5" y="0.0" width="240.5" height="624"/>
+                                                <rect key="frame" x="98.5" y="0.0" width="240.5" height="590"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="brM-QL-Acl" id="PSe-iy-Avz"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -203,12 +224,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U4r-Js-OpP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="U4r-Js-OpP" firstAttribute="trailing" secondItem="KPn-X5-7w2" secondAttribute="trailing" constant="37" id="Hwm-Iu-LYK"/>
                             <constraint firstItem="KPn-X5-7w2" firstAttribute="leading" secondItem="U4r-Js-OpP" secondAttribute="leading" constant="38" id="O2f-dq-dP6"/>
                             <constraint firstItem="KPn-X5-7w2" firstAttribute="top" secondItem="U4r-Js-OpP" secondAttribute="top" constant="8" id="SiP-yc-H2I"/>
                             <constraint firstItem="U4r-Js-OpP" firstAttribute="bottom" secondItem="KPn-X5-7w2" secondAttribute="bottom" constant="8" id="hCh-qE-g7J"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="aSX-Y1-u89" appends="YES" id="5Zd-am-DPM"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="X8A-Jo-tiQ"/>
                     <connections>
@@ -216,12 +241,18 @@
                         <outlet property="evolutionField" destination="UOu-12-7kI" id="gm4-8B-jpY"/>
                         <outlet property="genField" destination="pSb-6N-xIZ" id="WVT-s6-WTc"/>
                         <outlet property="nameField" destination="40c-LT-cwe" id="AlB-h7-HXy"/>
-                        <outlet property="typeField" destination="LmQ-3r-h22" id="9Ab-wj-Eos"/>
+                        <outlet property="type1Field" destination="LmQ-3r-h22" id="9KU-O1-PeG"/>
+                        <outlet property="type2Field" destination="192-GB-TJM" id="EAd-Hd-vYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALT-wh-ftg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aSX-Y1-u89">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="brM-QL-Acl" id="Xlf-yF-vnv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="482.60869565217394" y="-672.32142857142856"/>
+            <point key="canvasLocation" x="1392.753623188406" y="-672.32142857142856"/>
         </scene>
     </scenes>
     <resources>
