@@ -10,6 +10,28 @@ import UIKit
 class PokemonStore {
     
     var allPokemon = [Pokemon]()
+    let pokemonArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("pokemon.plist")
+    }()
+    
+    init() {
+        do {
+            let data = try Data(contentsOf: pokemonArchiveURL)
+            let unarchiver = PropertyListDecoder()
+            let pokemon = try unarchiver.decode([Pokemon].self, from: data)
+            allPokemon = pokemon
+        } catch {
+            print("Error reading in saved items: \(error)")
+        }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(saveChanges),
+                                       name: UIScene.didEnterBackgroundNotification,
+                                       object: nil)
+    }
     
     @discardableResult func createPokemon() -> Pokemon {
         
@@ -39,5 +61,20 @@ class PokemonStore {
         
         // Insert Pokemon in array at new location
         allPokemon.insert(movedPokemon, at: toIndex)
+    }
+    
+    @objc func saveChanges() -> Bool {
+        print("Saving items to: \(pokemonArchiveURL)")
+        
+        do {
+            let encoder = PropertyListEncoder()
+            let data = try encoder.encode(allPokemon)
+            try data.write(to: pokemonArchiveURL, options: [.atomic])
+            print("Saved all of the Pokemon")
+            return true
+        } catch let encodingError {
+            print("Error encoding allPokemon: \(encodingError)")
+            return false
+        }
     }
 }

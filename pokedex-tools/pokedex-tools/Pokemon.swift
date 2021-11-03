@@ -18,7 +18,7 @@ case Normal = "Normal", Fire = "Fire", Water = "Water", Grass = "Grass", Electri
 // Every Pokemon must have at least one type, but the second type is optional
 typealias PokemonType = (Type, Type?)
 
-class Pokemon: Equatable {
+class Pokemon: Equatable, Codable {
     var name: String
     var generation: Int
     var pokedexNumber: Int
