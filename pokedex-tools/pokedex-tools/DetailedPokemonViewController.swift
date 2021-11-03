@@ -45,8 +45,8 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
         dexNumField.text = numberFormatter.string(from: NSNumber(value: pokemon.pokedexNumber))
         
         
-        type1Field.text = pokemon.type.0.rawValue
-        if let value = pokemon.type.1?.rawValue {
+        type1Field.text = pokemon.type.type1.rawValue
+        if let value = pokemon.type.type2?.rawValue {
             type2Field.text = value
         } else {
             type2Field.text = ""
@@ -88,9 +88,9 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
         }
         // TODO: Crashes if Type Field is empty
         if type2 != "" {
-            pokemon.type = PokemonType(Type(rawValue: type1)!, Type(rawValue: type2))
+            pokemon.type = PokemonType(type1: Type(rawValue: type1)!, type2: Type(rawValue: type2))
         } else {
-            pokemon.type = PokemonType(Type(rawValue: type1)!, nil)
+            pokemon.type = PokemonType(type1: Type(rawValue: type1)!, type2: nil)
         }
         
     }

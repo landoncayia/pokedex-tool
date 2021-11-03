@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Type: String {
+enum Type: String, Codable {
 case Normal = "Normal", Fire = "Fire", Water = "Water", Grass = "Grass", Electric = "Electric", Ice = "Ice", Fighting = "Fighting", Poison = "Poison", Ground = "Ground", Flying = "Flying", Psychic = "Psychic", Bug = "Bug", Rock = "Rock", Ghost = "Ghost", Dark = "Dark", Dragon = "Dragon", Steel = "Steel", Fairy = "Fairy"
     
     /*func toString() -> String {
@@ -16,7 +16,10 @@ case Normal = "Normal", Fire = "Fire", Water = "Water", Grass = "Grass", Electri
 }
 
 // Every Pokemon must have at least one type, but the second type is optional
-typealias PokemonType = (Type, Type?)
+struct PokemonType: Codable {
+    var type1: Type
+    var type2: Optional<Type>
+}
 
 class Pokemon: Equatable, Codable {
     var name: String
@@ -40,7 +43,7 @@ class Pokemon: Equatable, Codable {
             let names = ["Bulbasaur", "Charmander", "Squirtle"]
             let gens = [1, 2, 3]
             let dexNums = [1, 4, 7]
-            let exTypes = [PokemonType(Type.Grass, nil), PokemonType(Type.Fire, nil), PokemonType(Type.Water, nil)]
+            let exTypes = [PokemonType(type1: Type.Grass, type2: nil), PokemonType(type1: Type.Fire, type2: nil), PokemonType(type1: Type.Water, type2: nil)]
             let evos = [[Pokemon(), Pokemon()], [Pokemon(), Pokemon()], [Pokemon(), Pokemon()]]
             
             let randomName = names.randomElement()!
@@ -55,7 +58,7 @@ class Pokemon: Equatable, Codable {
                       type: randomType,
                       evolutions: randomEvo)
         } else {
-            self.init(name: "", generation: 0, pokedexNumber: 0, type: PokemonType(Type.Normal, nil), evolutions: nil)
+            self.init(name: "", generation: 0, pokedexNumber: 0, type: PokemonType(type1: Type.Normal, type2: nil), evolutions: nil)
         }
     }
     

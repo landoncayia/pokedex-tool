@@ -58,8 +58,8 @@ class PokemonViewController: UITableViewController {
         cell.nameLabel.text = pokemon.name
         cell.genDexLabel.text = "#\(pokemon.pokedexNumber) | Gen: \(pokemon.generation)"
         
-        var temp = pokemon.type.0.rawValue
-        if let value = pokemon.type.1?.rawValue {
+        var temp = pokemon.type.type1.rawValue
+        if let value = pokemon.type.type2?.rawValue {
             temp+=" | \(value)"
         }
         
