@@ -6,6 +6,10 @@
 
 import UIKit
 
+enum Error: Swift.Error {
+    case fileNotFound(name: String)
+}
+
 class PokemonViewController: UITableViewController {
 
     var pokemonStore: PokemonStore!
@@ -22,6 +26,66 @@ class PokemonViewController: UITableViewController {
             tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    @IBAction func readPokemonFromCSV(_ sender: UIBarButtonItem) {
+            // fails if there is a comma in the data, but thankfully there are none in ours.
+            // Source: https://medium.com/@deadbeef404/reading-a-csv-in-swift-7be7a20220c6
+            
+            do {
+                guard let url = Bundle.main.url(
+                    forResource: "pokemon",
+                    withExtension: "csv"
+                ) else {
+                    throw Error.fileNotFound(name: "pokemon.csv")
+                }
+                let content = try String(contentsOf: url)
+                let parsedCSV: [[String]] = content.components(
+                    separatedBy: "\n"
+                ).map{ $0.components(separatedBy: ",") }
+                
+                for row in parsedCSV[1...] {
+                    
+                    // Do not execute if row is empty
+                    if !(row == [""]) {
+                        var rowType: [String?] = row[3].components(separatedBy: "~")
+                        var newType: PokemonType
+                        
+                        // If there is only one type for the Pokemon, its second type is nil
+                        if rowType.count == 1 {
+                            rowType.append(nil)
+                        }
+                        
+                        if let rowType1 = rowType[0] {
+                            if let rowType2 = rowType[1] {
+                                newType = PokemonType(type1: Type(rawValue: rowType1)!,
+                                                          type2: Type(rawValue: rowType2)!)
+                            } else {
+                                newType = PokemonType(type1: Type(rawValue: rowType1)!, type2: nil)
+                            }
+                        } else {
+                            print("An error occurred when setting the Pokemon's type.")
+                            newType = PokemonType(type1: Type(rawValue: "Normal")!, type2: nil)
+                        }
+                        
+                        let newPokemon = Pokemon(name: row[0],
+                                                 generation: Int(row[13])!,
+                                                 pokedexNumber: Int(row[1])!,
+                                                 type: newType)
+                        
+                        pokemonStore.allPokemon.append(newPokemon)
+                        
+                        if let index = pokemonStore.allPokemon.firstIndex(of: newPokemon) {
+                            let indexPath = IndexPath(row: index, section: 0)
+                            
+                            tableView.insertRows(at: [indexPath], with: .automatic)
+                        }
+                    }
+                }
+            } catch {
+                print("Error reading Pokemon from CSV: \(error)")
+            }
+        }
+
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

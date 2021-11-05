@@ -13,7 +13,6 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var dexNumField: UITextField!
     @IBOutlet var type1Field: UITextField!
     @IBOutlet var type2Field: UITextField!
-    @IBOutlet var evolutionField: UITextField!
     
     @IBAction func deleteAlertAction(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete \(nameField.text!)", preferredStyle: .alert)
