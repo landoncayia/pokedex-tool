@@ -75,11 +75,29 @@ class PokemonViewController: UITableViewController {
         if editingStyle == .delete {
             let pokemon = pokemonStore.allPokemon[indexPath.row]
             
-            // Remove the Pokemon from the store
-            pokemonStore.removePokemon(pokemon)
+            // Creates an Alert controller
+            let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete \(pokemon.name)", preferredStyle: .alert)
             
-            // Also remove that row from the table view with an animation
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let delete = UIAlertAction(title: "Delete", style: .default) { _ in
+                print("Deleting")
+                // TODO: delete from pokemon store
+                
+                // Remove the Pokemon from the store
+                self.pokemonStore.removePokemon(pokemon)
+                
+                // Also remove that row from the table view with an animation
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            alertController.addAction(delete)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { _ in
+                print("Canceling")
+            }
+            alertController.addAction(cancel)
+            
+            present(alertController, animated: true, completion: nil)
+            
+            
         }
     }
     
@@ -100,6 +118,7 @@ class PokemonViewController: UITableViewController {
                 // Get the Pokemon associated with this row and pass it along
                 let pokemon = pokemonStore.allPokemon[row]
                 let detailedPokemonViewController = segue.destination as! DetailedPokemonViewController
+                detailedPokemonViewController.pokemonStore = pokemonStore
                 detailedPokemonViewController.pokemon = pokemon
             }
         default:

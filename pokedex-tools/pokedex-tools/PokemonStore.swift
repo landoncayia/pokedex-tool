@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokemonStore {
+public class PokemonStore {
     
     var allPokemon = [Pokemon]()
     let pokemonArchiveURL: URL = {

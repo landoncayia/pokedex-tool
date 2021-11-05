@@ -15,11 +15,34 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var type2Field: UITextField!
     @IBOutlet var evolutionField: UITextField!
     
+    @IBAction func deleteAlertAction(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete \(nameField.text!)", preferredStyle: .alert)
+        
+        let delete = UIAlertAction(title: "Delete", style: .default) { _ in
+            print("Deleting")
+            
+            // TODO: delete from pokemon store
+            self.pokemonStore.removePokemon(self.pokemon)
+            
+            self.navigationController!.popViewController(animated: true)
+        }
+        alertController.addAction(delete)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { _ in
+            print("Canceling")
+        }
+        alertController.addAction(cancel)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     var pokemon: Pokemon! {
         didSet {
             navigationItem.title = pokemon.name
         }
     }
+    
+    var pokemonStore: PokemonStore!
     
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
