@@ -85,7 +85,11 @@ class PokemonViewController: UITableViewController {
                 print("Error reading Pokemon from CSV: \(error)")
             }
         }
-
+    
+    @IBAction func deleteAllPokemon(_ sender: UIBarButtonItem) {
+        pokemonStore.allPokemon.removeAll(keepingCapacity: false)
+        tableView.reloadData()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -144,7 +148,6 @@ class PokemonViewController: UITableViewController {
             
             let delete = UIAlertAction(title: "Delete", style: .default) { _ in
                 print("Deleting")
-                // TODO: delete from pokemon store
                 
                 // Remove the Pokemon from the store
                 self.pokemonStore.removePokemon(pokemon)

@@ -84,7 +84,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="PokeDex" id="JHb-0P-TyX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="0OM-yN-0cL"/>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="edit" id="0OM-yN-0cL"/>
+                            <barButtonItem title="Delete All" id="5uV-nu-Fj0">
+                                <connections>
+                                    <action selector="deleteAllPokemon:" destination="bTR-dg-oWb" id="wbs-88-rJU"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="3Zn-7n-BH6">
                                 <connections>
