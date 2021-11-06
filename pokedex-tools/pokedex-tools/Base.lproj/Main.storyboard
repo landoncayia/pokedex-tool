@@ -227,12 +227,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WP3-OH-mPM">
-                                <rect key="frame" x="77" y="264" width="260" height="541"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="WP3-OH-mPM" secondAttribute="height" multiplier="240:499" id="GuI-TP-qpv"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U4r-Js-OpP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -241,12 +235,9 @@
                             <constraint firstItem="27I-mL-Eq6" firstAttribute="bottom" secondItem="U4r-Js-OpP" secondAttribute="bottom" id="BXC-oS-dyb"/>
                             <constraint firstItem="U4r-Js-OpP" firstAttribute="bottom" secondItem="27I-mL-Eq6" secondAttribute="bottom" id="ENV-Tb-kw3"/>
                             <constraint firstItem="U4r-Js-OpP" firstAttribute="trailing" secondItem="KPn-X5-7w2" secondAttribute="trailing" constant="37" id="Hwm-Iu-LYK"/>
-                            <constraint firstItem="WP3-OH-mPM" firstAttribute="centerX" secondItem="SiB-7W-0ao" secondAttribute="centerX" id="Ln5-cU-0Lp"/>
                             <constraint firstItem="KPn-X5-7w2" firstAttribute="leading" secondItem="U4r-Js-OpP" secondAttribute="leading" constant="38" id="O2f-dq-dP6"/>
-                            <constraint firstItem="WP3-OH-mPM" firstAttribute="top" secondItem="KPn-X5-7w2" secondAttribute="bottom" constant="8" id="QQi-9n-KMh"/>
                             <constraint firstItem="KPn-X5-7w2" firstAttribute="top" secondItem="U4r-Js-OpP" secondAttribute="top" constant="8" id="SiP-yc-H2I"/>
                             <constraint firstItem="27I-mL-Eq6" firstAttribute="leading" secondItem="U4r-Js-OpP" secondAttribute="leading" id="Txc-Gf-MLA"/>
-                            <constraint firstItem="27I-mL-Eq6" firstAttribute="top" secondItem="WP3-OH-mPM" secondAttribute="bottom" constant="8" id="Zp6-ra-4nV"/>
                             <constraint firstItem="U4r-Js-OpP" firstAttribute="trailing" secondItem="27I-mL-Eq6" secondAttribute="trailing" id="dXM-BK-7Oi"/>
                         </constraints>
                         <connections>

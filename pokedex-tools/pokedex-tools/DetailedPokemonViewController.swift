@@ -108,7 +108,6 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
         if type1 == "" {
             type1 = "Normal"
         }
-        // TODO: Crashes if Type Field is empty
         if type2 != "" {
             pokemon.type = PokemonType(type1: Type(rawValue: type1)!, type2: Type(rawValue: type2))
         } else {

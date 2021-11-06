@@ -22,7 +22,6 @@ class Pokemon: Equatable, Codable {
     var generation: Int
     var pokedexNumber: Int
     var type: PokemonType
-    //var photo: UIImage
     
     init(name: String, generation: Int, pokedexNumber: Int, type: PokemonType) {
         self.name = name
