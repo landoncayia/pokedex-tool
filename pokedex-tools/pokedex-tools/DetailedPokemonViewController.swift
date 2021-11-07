@@ -73,11 +73,6 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
         } else {
             type2Field.text = ""
         }
-        
-       
-        
-        // TODO: Add evolutions here when you figure out how to implement it.
-        // TODO: Image guide is in Chapter 15
     
     }
     
@@ -102,18 +97,22 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
             pokemon.pokedexNumber = 0
         }
         
-        var type1 = type1Field.text ?? ""
-        let type2 = type2Field.text ?? ""
+        let type1Text = type1Field.text ?? ""
+        let type2Text = type2Field.text ?? ""
         
-        if type1 == "" {
-            type1 = "Normal"
-        }
-        if type2 != "" {
-            pokemon.type = PokemonType(type1: Type(rawValue: type1)!, type2: Type(rawValue: type2))
+        if let type1 = Type(rawValue: type1Text) {
+            if let type2 = Type(rawValue: type2Text) {
+                // Both types are present and valid; assign both
+                pokemon.type = PokemonType(type1: type1, type2: type2)
+            } else {
+                // Only the first type is present and valid; assign first, second is nil
+                pokemon.type = PokemonType(type1: type1, type2: nil)
+            }
         } else {
-            pokemon.type = PokemonType(type1: Type(rawValue: type1)!, type2: nil)
+            // Neither type is present and valid; print message and set type1 to Normal
+            print("First type is invalid; Pokemon must have at least one type. Setting to Normal.")
+            pokemon.type = PokemonType(type1: Type.Normal, type2: nil)
         }
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
