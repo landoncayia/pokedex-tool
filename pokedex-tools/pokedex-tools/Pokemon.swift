@@ -47,7 +47,7 @@ class Pokemon: Equatable, Codable {
                       pokedexNumber: randomDexNum,
                       type: randomType)
         } else {
-            self.init(name: "", generation: 0, pokedexNumber: 0, type: PokemonType(type1: Type.Normal, type2: nil))
+            self.init(name: "New Pokemon", generation: 0, pokedexNumber: 0, type: PokemonType(type1: Type.Normal, type2: nil))
         }
     }
     

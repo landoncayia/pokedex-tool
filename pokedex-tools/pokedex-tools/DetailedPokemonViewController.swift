@@ -83,7 +83,13 @@ class DetailedPokemonViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
         
         // "Save" changes to pokemon
-        pokemon.name = nameField.text ?? ""
+        if let nameFieldText = nameField.text {
+            if nameFieldText != "" {
+                pokemon.name = nameFieldText
+            } else {
+                pokemon.name = "Name"
+            }
+        }
         if let valueText = genField.text,
            let value = numberFormatter.number(from: valueText) {
             pokemon.generation = value.intValue

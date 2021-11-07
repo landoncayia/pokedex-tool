@@ -35,9 +35,11 @@ public class PokemonStore {
     
     @discardableResult func createPokemon() -> Pokemon {
         
-        let newPokemon = Pokemon(random: true)
+        let newPokemon = Pokemon(random: false)
         
         allPokemon.append(newPokemon)
+        
+        allPokemon.sort(by: { $0.pokedexNumber < $1.pokedexNumber })
         
         return newPokemon
     }
