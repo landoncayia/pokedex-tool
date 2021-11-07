@@ -83,7 +83,7 @@
                             <outlet property="delegate" destination="bTR-dg-oWb" id="Wc2-lG-fFn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="PokeDex" id="JHb-0P-TyX">
+                    <navigationItem key="navigationItem" title="PokéDex" id="JHb-0P-TyX">
                         <leftBarButtonItems>
                             <barButtonItem systemItem="edit" id="0OM-yN-0cL"/>
                             <barButtonItem title="Delete All" id="5uV-nu-Fj0">
